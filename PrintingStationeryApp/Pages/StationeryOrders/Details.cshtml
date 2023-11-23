@@ -1,0 +1,103 @@
+﻿@page
+@model PrintingStationeryApp.Pages.StationeryOrders.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>StationeryOrder</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.OrderNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.OrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.OrderNoInString)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.OrderNoInString)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.Branch)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.Branch.BranchName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.OrderDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.OrderDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.CompletionDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.CompletionDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.PrintingCompany)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.PrintingCompany.CompanyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.OrderBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.OrderBy.EmployeeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.OrderStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.OrderStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.IsCompleted)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.IsCompleted)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.ApprovedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.ApprovedBy.EmployeeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.ApprovedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.ApprovedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.TenantId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.TenantId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.IsDeleted)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.IsDeleted)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StationeryOrder.Comments)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StationeryOrder.Comments)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.StationeryOrder?.StationeryOrderId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

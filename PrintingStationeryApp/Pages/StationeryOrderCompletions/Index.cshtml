@@ -1,0 +1,66 @@
+﻿@page
+@model PrintingStationeryApp.Pages.StationeryOrderCompletions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StationeryOrderCompletion[0].StationeryOrderItem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationeryOrderCompletion[0].StationeryOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationeryOrderCompletion[0].NoOfBooks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationeryOrderCompletion[0].RecievedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationeryOrderCompletion[0].IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationeryOrderCompletion[0].TenantId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.StationeryOrderCompletion) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationeryOrderItem.StationeryOrderItemId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationeryOrder.StationeryOrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfBooks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecievedBy.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.StationeryOrderCompletionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.StationeryOrderCompletionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.StationeryOrderCompletionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

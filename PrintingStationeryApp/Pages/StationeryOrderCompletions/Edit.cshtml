@@ -1,0 +1,159 @@
+﻿@page
+@model PrintingStationeryApp.Pages.StationeryOrderCompletions.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>StationeryOrderCompletion</h4>
+<hr />
+<div>
+<form method="post">
+    <div class="row col-12">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.StationeryOrderItemId" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <select asp-for="StationeryOrderCompletion.StationeryOrderItemId" class="form-control" asp-items="ViewBag.StationeryOrderItemId"></select>
+        </div>
+
+        <div class=" form-group col-2"></div>
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.StationeryOrderId" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <select asp-for="StationeryOrderCompletion.StationeryOrderId" class="form-control" asp-items="ViewBag.StationeryOrderId"></select>
+        </div>
+        <br />
+        <br />
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.RecievedOn" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <input asp-for="StationeryOrderCompletion.RecievedOn" class="form-control" />
+            <span asp-validation-for="StationeryOrderCompletion.RecievedOn" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-2"></div>
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.BranchId" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <select asp-for="StationeryOrderCompletion.BranchId" class="form-control" asp-items="ViewBag.BranchId"></select>
+        </div>
+        <br />
+        <br />
+
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.PrintingStationeryId" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <select asp-for="StationeryOrderCompletion.PrintingStationeryId" class="form-control" asp-items="ViewBag.PrintingStationeryId"></select>
+        </div>
+
+        <div class="form-group col-2"></div>
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.FromStationeryNo" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <input asp-for="StationeryOrderCompletion.FromStationeryNo" class="form-control" />
+            <span asp-validation-for="StationeryOrderCompletion.FromStationeryNo" class="text-danger"></span>
+        </div>
+        <br />
+        <br />
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.ToStationeryNo" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <input asp-for="StationeryOrderCompletion.ToStationeryNo" class="form-control" />
+            <span asp-validation-for="StationeryOrderCompletion.ToStationeryNo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-2"></div>
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.NoOfBooks" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <input asp-for="StationeryOrderCompletion.NoOfBooks" class="form-control" />
+            <span asp-validation-for="StationeryOrderCompletion.NoOfBooks" class="text-danger"></span>
+        </div>
+        <br />
+        <br />
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.RecievedById" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <select asp-for="StationeryOrderCompletion.RecievedById" class="form-control" asp-items="ViewBag.RecievedById"></select>
+        </div>
+
+        <div class="form-group col-2"></div>
+
+        <div class="form-group col-2"></div>
+        <div class="form-group form-check col-3">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="StationeryOrderCompletion.IsDeleted" /> @Html.DisplayNameFor(model => model.StationeryOrderCompletion.IsDeleted)
+            </label>
+        </div>
+        <br />
+        <br />
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.Comments" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <textarea asp-for="StationeryOrderCompletion.Comments" class="form-control"></textarea>
+            <span asp-validation-for="StationeryOrderCompletion.Comments" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-2"></div>
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.TenantId" class="control-label"></label>
+        </div>
+        <div class="form-group col-3">
+            <input asp-for="StationeryOrderCompletion.TenantId" class="form-control" />
+            <span asp-validation-for="StationeryOrderCompletion.TenantId" class="text-danger"></span>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div class="form-group col-2">
+            <label asp-for="StationeryOrderCompletion.File"></label>
+        </div>
+        <div class="form-group col-3">
+            <input asp-for="StationeryOrderCompletion.File" type="file" class="form-control" />
+        </div>
+        <br />
+        <br />
+        <br />
+    </div>
+</form>
+</div>
+<div class="form-group btn-group col-12">
+    <div class="col-3"></div>
+    <div class="col-5">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+
+    <div class="col-4">
+        <a class="btn btn-secondary btn-block" asp-page="Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
