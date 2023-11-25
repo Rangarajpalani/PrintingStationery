@@ -47,7 +47,10 @@ namespace PrintingStationeryApp.Data
             modelBuilder.Entity<StationeryOrder>()
                 .HasMany(s => s.StationeryOrderItems)
                 .WithOne(s => s.StationeryOrder);
-                
+            modelBuilder.Entity<StationeryOrderCompletion>()
+                        .Property(x => x.StationeryOrderCompletionId)
+                        .ValueGeneratedOnAdd();
+
             base.OnModelCreating(modelBuilder);
         }
 

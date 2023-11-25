@@ -17,6 +17,8 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
         public CreateModel(PrintingStationeryApp.Data.PrintingStationeryAppContext context)
         {
             _context = context;
+            StationeryOrderItems = new List<StationeryOrderItem> { new StationeryOrderItem() };
+
         }
 
         [BindProperty]
@@ -28,20 +30,14 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
 
         public IActionResult OnGet()
         {
-        ViewData["ApprovedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeId");
-        ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchId");
-        ViewData["OrderById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeId");
-        ViewData["PrintingCompanyId"] = new SelectList(_context.Set<Company>(), "CompanyId", "CompanyId");
+        ViewData["ApprovedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
+        ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchName");
+        ViewData["OrderById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
+        ViewData["PrintingCompanyId"] = new SelectList(_context.Set<Company>(), "CompanyId", "CompanyName");
 
-           /* StationeryOrder = new StationeryOrder()
-            {
-                
-                StationeryOrderItems = new List<StationeryOrderItem>
-            {
-                new StationeryOrderItem(),
-                new StationeryOrderItem()
-            }
-            };*/
+
+            StationeryOrderItems = new List<StationeryOrderItem>{ new StationeryOrderItem() };
+            
 
 
             return Page();

@@ -29,7 +29,12 @@ namespace PrintingStationeryApp.Pages.StationeryOrderCompletions
                 return NotFound();
             }
 
-            var stationeryordercompletion = await _context.StationeryOrderCompletion.FirstOrDefaultAsync(m => m.StationeryOrderCompletionId == id);
+            var stationeryordercompletion = await _context.StationeryOrderCompletion
+                                           .Include(s => s.Branch)
+                                           .Include(s => s.PrintingStationery)
+                                           .Include(s => s.RecievedBy)
+                                           .Include(s => s.StationeryOrder)
+                                           .Include(s => s.StationeryOrderItem).FirstOrDefaultAsync(m => m.StationeryOrderCompletionId == id);
 
             if (stationeryordercompletion == null)
             {

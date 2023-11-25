@@ -51,10 +51,10 @@ namespace PrintingStationeryApp.Models
 
         public string? TenantId { get; set; }
 
-        public List<StationeryOrderCompletionFile>? Files { get; set; }
+       // public List<StationeryOrderCompletionFile>? Files { get; set; }
 
         [NotMapped]
-        public string FilePath { get; set; }
+        public string? FilePath { get; set; }
         [NotMapped]
         public IFormFile? File { get; set; }
         //public List<StationeryOrderWithCompletion>? StationeryOrderWithCompletions { get; set; }

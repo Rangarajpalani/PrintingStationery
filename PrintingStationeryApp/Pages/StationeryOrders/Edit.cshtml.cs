@@ -18,10 +18,13 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
         public EditModel(PrintingStationeryApp.Data.PrintingStationeryAppContext context)
         {
             _context = context;
+            StationeryOrderItems = new List<StationeryOrderItem> { new StationeryOrderItem() };
         }
 
         [BindProperty]
         public StationeryOrder StationeryOrder { get; set; } = default!;
+        [BindProperty]
+        public List<StationeryOrderItem> StationeryOrderItems { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,16 +33,20 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
                 return NotFound();
             }
 
-            var stationeryorder =  await _context.StationeryOrder.FirstOrDefaultAsync(m => m.StationeryOrderId == id);
+            var stationeryorder =  await _context.StationeryOrder
+                .Include(s => s.ApprovedBy)
+                .Include(s => s.Branch)
+                .Include(s => s.OrderBy)
+                .Include(s => s.PrintingCompany).FirstOrDefaultAsync(m => m.StationeryOrderId == id);
             if (stationeryorder == null)
             {
                 return NotFound();
             }
             StationeryOrder = stationeryorder;
-           ViewData["ApprovedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeId");
-           ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchId");
-           ViewData["OrderById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeId");
-           ViewData["PrintingCompanyId"] = new SelectList(_context.Set<Company>(), "CompanyId", "CompanyId");
+           ViewData["ApprovedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
+           ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchName");
+           ViewData["OrderById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
+           ViewData["PrintingCompanyId"] = new SelectList(_context.Set<Company>(), "CompanyId", "CompanyName");
             return Page();
         }
 

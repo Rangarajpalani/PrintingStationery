@@ -23,9 +23,9 @@ namespace PrintingStationeryApp.Pages.StationeryOrderCompletions
 
         public IActionResult OnGet()
         {
-        ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchId");
-        ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "PrintingStationeryId");
-        ViewData["RecievedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeId");
+        ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchName");
+        ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "Name");
+        ViewData["RecievedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
         ViewData["StationeryOrderId"] = new SelectList(_context.StationeryOrder, "StationeryOrderId", "StationeryOrderId");
         ViewData["StationeryOrderItemId"] = new SelectList(_context.Set<StationeryOrderItem>(), "StationeryOrderItemId", "StationeryOrderItemId");
             return Page();
@@ -44,7 +44,7 @@ namespace PrintingStationeryApp.Pages.StationeryOrderCompletions
             }
             if (StationeryOrderCompletion.File != null && (StationeryOrderCompletion.File.Length > 0))
             {
-                var uploads = Path.Combine(_environment.WebRootPath, "uploads");
+                var uploads = Path.Combine(_environment.WebRootPath, "wwwroot/Files");
                 var filePath = Path.Combine(uploads, (StationeryOrderCompletion.File.FileName));
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))

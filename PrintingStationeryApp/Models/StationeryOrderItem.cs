@@ -36,7 +36,7 @@ namespace PrintingStationeryApp.Models
         [Display(Name = "Is Deleted")]
         public bool IsDeleted { get; set; }
 
-        public List<StationeryOrderCompletion> StationeryOrderCompletions { get; set; }
+       // public List<StationeryOrderCompletion>? StationeryOrderCompletions { get; set; }
     }
 }
 

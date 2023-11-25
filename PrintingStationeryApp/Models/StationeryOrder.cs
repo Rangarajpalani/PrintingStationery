@@ -63,8 +63,9 @@ namespace PrintingStationeryApp.Models
         [DataType(DataType.MultilineText)]
         public string? Comments { get; set; }
 
-        public List<StationeryOrderItem> StationeryOrderItems { get; set; } =new List<StationeryOrderItem>();
-        public List<StationeryOrderCompletion> StationeryOrderCompletions { get; set; }
+        public List<StationeryOrderItem>? StationeryOrderItems { get; set; } =new List<StationeryOrderItem>();
+
+        //public List<StationeryOrderCompletion>? StationeryOrderCompletions { get; set; }
         //public List<StationeryPrinterInvoice>? StationeryPrinterInvoices { get; set; }
         //public List<StationeryOrderCompletion>? StationeryOrderCompletions { get; set; }
         //public List<StationeryOrderWithCompletion>? StationeryOrderWithCompletions { get; set; }
