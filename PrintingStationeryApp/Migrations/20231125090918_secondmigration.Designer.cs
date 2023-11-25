@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrintingStationeryApp.Data;
 
@@ -11,9 +12,11 @@ using PrintingStationeryApp.Data;
 namespace PrintingStationeryApp.Migrations
 {
     [DbContext(typeof(PrintingStationeryAppContext))]
-    partial class PrintingStationeryAppContextModelSnapshot : ModelSnapshot
+    [Migration("20231125090918_secondmigration")]
+    partial class secondmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

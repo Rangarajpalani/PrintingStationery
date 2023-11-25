@@ -26,7 +26,7 @@ namespace PrintingStationeryApp.Pages.StationeryOrderCompletions
         ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchName");
         ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "Name");
         ViewData["RecievedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
-        ViewData["StationeryOrderId"] = new SelectList(_context.StationeryOrder, "StationeryOrderId", "StationeryOrderId");
+        ViewData["StationeryOrderId"] = new SelectList(_context.StationeryOrder, "StationeryOrderId", "OrderNo");
         ViewData["StationeryOrderItemId"] = new SelectList(_context.Set<StationeryOrderItem>(), "StationeryOrderItemId", "StationeryOrderItemId");
             return Page();
         }

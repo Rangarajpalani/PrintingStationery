@@ -50,6 +50,18 @@ namespace PrintingStationeryApp.Data
             modelBuilder.Entity<StationeryOrderCompletion>()
                         .Property(x => x.StationeryOrderCompletionId)
                         .ValueGeneratedOnAdd();
+            modelBuilder.Entity<StationeryOrder>()
+                       .Property(x => x.StationeryOrderId)
+                       .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Branch>().HasData(
+            new Branch { BranchId= 1 ,BranchName = "Salem" },
+            new Branch { BranchId = 2 , BranchName = "Madhurai" });
+
+            modelBuilder.Entity<Company>().HasData(
+            new Company { CompanyId= 1, CompanyName = "companyName1" });
+
+            
 
             base.OnModelCreating(modelBuilder);
         }

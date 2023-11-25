@@ -41,11 +41,11 @@ namespace PrintingStationeryApp.Pages.StationeryOrderCompletions
                 return NotFound();
             }
             StationeryOrderCompletion = stationeryordercompletion;
-           ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchId");
-           ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "PrintingStationeryId");
-           ViewData["RecievedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeId");
-           ViewData["StationeryOrderId"] = new SelectList(_context.StationeryOrder, "StationeryOrderId", "StationeryOrderId");
-           ViewData["StationeryOrderItemId"] = new SelectList(_context.Set<StationeryOrderItem>(), "StationeryOrderItemId", "StationeryOrderItemId");
+           ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchName");
+           ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "Name");
+           ViewData["RecievedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
+           ViewData["StationeryOrderId"] = new SelectList(_context.StationeryOrder, "StationeryOrderId", "OrderNo");
+           ViewData["StationeryOrderItemId"] = new SelectList(_context.Set<StationeryOrderItem>(), "StationeryOrderItemId", "CompletionDate");
             return Page();
         }
 
