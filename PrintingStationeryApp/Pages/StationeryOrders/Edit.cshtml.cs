@@ -18,7 +18,8 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
         public EditModel(PrintingStationeryApp.Data.PrintingStationeryAppContext context)
         {
             _context = context;
-            StationeryOrderItems = new List<StationeryOrderItem> { new StationeryOrderItem() };
+            StationeryOrderItems = new List<StationeryOrderItem> { 
+            new StationeryOrderItem() };
         }
 
         [BindProperty]
@@ -37,7 +38,8 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
                 .Include(s => s.ApprovedBy)
                 .Include(s => s.Branch)
                 .Include(s => s.OrderBy)
-                .Include(s => s.PrintingCompany).FirstOrDefaultAsync(m => m.StationeryOrderId == id);
+                .Include(s => s.PrintingCompany)
+                .Include(s => s.StationeryOrderItems).FirstOrDefaultAsync(m => m.StationeryOrderId == id);
             if (stationeryorder == null)
             {
                 return NotFound();
@@ -47,6 +49,8 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
            ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchName");
            ViewData["OrderById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
            ViewData["PrintingCompanyId"] = new SelectList(_context.Set<Company>(), "CompanyId", "CompanyName");
+           ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "Name");
+
             return Page();
         }
 

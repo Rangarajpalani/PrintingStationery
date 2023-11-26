@@ -14,34 +14,27 @@ namespace PrintingStationeryApp
             {
                 if (context == null || context.Employees == null)
                 {
-                    throw new ArgumentNullException("Null RazorPagesMovieContext");
-                }
-                if (context == null || context.PrintingStationeries == null)
-                {
-                    context.PrintingStationeries.AddRange(new PrintingStationery
-                    {  
-                       Name="Company1",Description="something",IsNumbered=true,IsDeleted=true,
-                       IsContinuos=true,NoOfPagesInOneBook=364,NoOfCopies=4,TenantId="2",Comments="text",IsActive=true,IsWithCarbon=true
-                    });
-
-                }
-
-                 if (context.Employees.Any())
-                {
-                    return;  
-                }
-                context.Employees.AddRange(
+                    context.Employees.AddRange(
                 new Employee
                 {
                     EmployeeName = "Person1",
 
                 });
 
-                context.SaveChanges();
-            }
-            
-               
-            
+                    context.SaveChanges();
+                }
+                if (context.PrintingStationeries == null)
+                {
+                    context.PrintingStationeries.AddRange(new PrintingStationery
+                    {  
+                       Name="Company1",Description="something",IsNumbered=true,IsDeleted=true,
+                       IsContinuos=true,NoOfPagesInOneBook=364,NoOfCopies=4,TenantId="2",Comments="text",IsActive=true,IsWithCarbon=true
+                    });
+                    context.SaveChanges();
+
+                }
+             }
+                
         }
     }
 }

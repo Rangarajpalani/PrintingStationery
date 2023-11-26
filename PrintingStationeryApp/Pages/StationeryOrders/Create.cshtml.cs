@@ -33,10 +33,14 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
         ViewData["ApprovedById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
         ViewData["BranchId"] = new SelectList(_context.Set<Branch>(), "BranchId", "BranchName");
         ViewData["OrderById"] = new SelectList(_context.Set<Employee>(), "EmployeeId", "EmployeeName");
-        ViewData["PrintingCompanyId"] = new SelectList(_context.Set<Company>(), "CompanyId", "CompanyName");
+        ViewData["CompanyId"] = new SelectList(_context.Set<Company>(), "CompanyId", "CompanyName");
+        ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "Name");
 
 
-            StationeryOrderItems = new List<StationeryOrderItem>{ new StationeryOrderItem() };
+            StationeryOrderItems = new List<StationeryOrderItem>
+                                    { 
+                                      
+                                      new StationeryOrderItem() };
             
 
 

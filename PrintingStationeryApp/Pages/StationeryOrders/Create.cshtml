@@ -13,8 +13,7 @@
     <form method="post" enctype="multipart/form-data">
         <div class="row col-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group col-2">
+             <div class="form-group col-2">
                 <label asp-for="StationeryOrder.OrderNo" class="control-label"></label>
             </div>
             <div class="form-group col-3">
@@ -69,7 +68,7 @@
                 <label asp-for="StationeryOrder.PrintingCompanyId" class="control-label"></label>
             </div>
             <div class="form-group col-3">
-                <select asp-for="StationeryOrder.PrintingCompanyId" class="form-control" asp-items="ViewBag.PrintingCompanyId"></select>
+                <select asp-for="StationeryOrder.PrintingCompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
             </div>
             <br />
             <br />
@@ -153,54 +152,48 @@
             <div>
             <h3>Stationery Order Items</h3>
              <br/><br/>
+             <table>
+                 <tr>
+                        <th>FromStationeryNo</th>
+                        <th>ToStationeryNo</th>
+                        <th>NoOfBooks</th>
+                        <th>Comments</th>
+                        <th>TenantId</th>
+                        <th>CompletionDate</th>
+                        <th>IsDeleted</th>
+                        <th>PrintingStationeryId</th>
+                 </tr>
+                 <tbody>
                 @for (var i = 0; i < Model.StationeryOrderItems.Count; i++)
-            {
-                
-                    <div class="row col-12">
-                        <div class=" col-2">
-                       <label for="StationeryOrderItems[@i].FromStationeryNo">FromStationeryNo:</label>
-                        </div>
-                        <div class=" col-3">
+            {        <tr>
+                        <td>
                         <input type="number" id="StationeryOrderItems[@i].FromStationeryNo" asp-for="StationeryOrderItems[i].FromStationeryNo" />
-                        </div>
-                        
-                        <div class=" col-2"></div>
-
-                        <div class=" col-2">
-                        <label for="StationeryOrderItems[@i].ToStationeryNo">ToStationeryNo:</label>
-                        </div>
-                        <div class=" col-3">
+                        </td>
+                        <td>
                         <input type="number" id="StationeryOrderItems[@i].ToStationeryNo" asp-for="StationeryOrderItems[i].ToStationeryNo" />
-                        </div>
-                        <br /><br />
-
-                        <div class=" col-2">
-                        <label for="StationeryOrderItems[@i].NoOfBooks">NoOfBooks:</label>
-                        </div>
-                        <div class=" col-3">
+                        </td>
+                        <td>
                         <input type="number" id="StationeryOrderItems[@i].NoOfBooks" asp-for="StationeryOrderItems[i].NoOfBooks" />
-                        </div>
-
-                        <div class=" col-2"></div>
-
-                        <div class=" col-2">
-                        <label for="StationeryOrderItems[@i].Comments">Comments:</label>
-                        </div>
-                        <div class=" col-3">
+                        </td>
+                        <td>
                         <input type="text" id="StationeryOrderItems[@i].Comments" asp-for="StationeryOrderItems[i].Comments" />
-                        </div>
-                        <br /><br />
-                        
-                        <div class=" col-2">
-                        <label for="StationeryOrderItems[@i].TenantId">TenantId:</label>
-                        </div>
-                        <div class=" col-3">
+                        </td>
+                        <td>
                         <input type="number" id="StationeryOrderItems[@i].TenantId" asp-for="StationeryOrderItems[i].TenantId" />
-                        </div>
-
-                    </div>
-                  <br/><br/> 
+                        </td>
+                        <td>
+                        <input type="datetime" id="StationeryOrderItems[@i].CompletionDate" asp-for="StationeryOrderItems[i].CompletionDate" />
+                        </td>
+                        <td>
+                        <input type="bool" id="StationeryOrderItems[@i].IsDeleted" asp-for="StationeryOrderItems[i].IsDeleted" />
+                        </td>
+                        <td>
+                        <select id="StationeryOrderItems[@i].PrintingStationeryId" asp-for="StationeryOrderItems[i].PrintingStationeryId" class="form-control" asp-items="ViewBag.PrintingStationeryId"></select>
+                        </td>
+                    </tr>
             }
+                 </tbody>
+            </table>
             </div>
 
         </div>
