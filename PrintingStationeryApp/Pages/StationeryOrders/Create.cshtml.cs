@@ -17,15 +17,13 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
         public CreateModel(PrintingStationeryApp.Data.PrintingStationeryAppContext context)
         {
             _context = context;
-            StationeryOrderItems = new List<StationeryOrderItem> { new StationeryOrderItem() };
-
+           
         }
 
-        [BindProperty]
+    [BindProperty]
         public StationeryOrder StationeryOrder { get; set; } = default!;
 
-        [BindProperty]
-        public List<StationeryOrderItem> StationeryOrderItems { get; set; }
+        
 
 
         public IActionResult OnGet()
@@ -37,12 +35,7 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
         ViewData["PrintingStationeryId"] = new SelectList(_context.Set<PrintingStationery>(), "PrintingStationeryId", "Name");
 
 
-            StationeryOrderItems = new List<StationeryOrderItem>
-                                    { 
-                                      
-                                      new StationeryOrderItem() };
             
-
 
             return Page();
         }

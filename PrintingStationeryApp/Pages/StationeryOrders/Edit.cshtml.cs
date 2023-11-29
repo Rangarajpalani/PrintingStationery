@@ -18,15 +18,13 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
         public EditModel(PrintingStationeryApp.Data.PrintingStationeryAppContext context)
         {
             _context = context;
-            StationeryOrderItems = new List<StationeryOrderItem> { 
-            new StationeryOrderItem() };
+            
         }
 
         [BindProperty]
         public StationeryOrder StationeryOrder { get; set; } = default!;
-        [BindProperty]
-        public List<StationeryOrderItem> StationeryOrderItems { get; set; } = default!;
-
+        
+       
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.StationeryOrder == null)
