@@ -32,7 +32,8 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
             var stationeryorder = await _context.StationeryOrder.Include(s => s.ApprovedBy)
                 .Include(s => s.Branch)
                 .Include(s => s.OrderBy)
-                .Include(s => s.PrintingCompany).FirstOrDefaultAsync(m => m.StationeryOrderId == id);
+                .Include(s => s.PrintingCompany)
+                .FirstOrDefaultAsync(m => m.StationeryOrderId == id);
 
             if (stationeryorder == null)
             {

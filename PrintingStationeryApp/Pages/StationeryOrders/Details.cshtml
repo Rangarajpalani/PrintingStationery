@@ -106,23 +106,19 @@
                 <th>ToStationeryNo </th>
                 <th>NoOfBooks</th>
                 <th>Comments </th>
-                <th>TenantId</th>
-                <th>CompletionDate</th>
-                <th>IsDeleted </th>
-               </tr>
+                
+                </tr>
            </thead>
            <tbody>
                @foreach(var item in Model.StationeryOrder.StationeryOrderItems)
               {
                 <tr>
-                    <td>@item.PrintingStationeryId</td>
+                    <td>@item.PrintingStationery</td>
                     <td>@item.FromStationeryNo</td>
                     <td>@item.ToStationeryNo</td>
                     <td>@item.NoOfBooks</td>
                     <td>@item.Comments</td>
-                    <td>@item.TenantId</td>
-                    <td>@item.CompletionDate</td>
-                    <td>@item.IsDeleted </td>
+                    
                 </tr>
               }
         </tbody>

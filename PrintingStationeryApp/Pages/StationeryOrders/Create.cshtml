@@ -152,52 +152,17 @@
             <div>
             <h3>Stationery Order Items</h3>
              <br/><br/>
-             @* <ng-form>
-                <div id="StationeryorderItemsContainer">
-                    @for (int i=0; i< Model.StationeryOrderItems.Count; i++)
-                    {
-                        <div class="form-group Stationeryorder-item">
-                            
-                            <label asp-for="StationeryOrderItems[i].PrintingStationeryId"></label>
-                            <Select asp-for="StationeryOrderItems[i].PrintingStationeryId" class="form-control" asp-items="ViewBag.PrintingStationeryId"></select>
-
-                            <label asp-for="StationeryOrderItems[i].FromStationeryNo"></label>
-                            <input asp-for="StationeryOrderItems[i].FromStationeryNo" class="form-control" />
-
-                            <label asp-for="StationeryOrderItems[@i].ToStationeryNo"></label>
-                            <input asp-for="StationeryOrderItems[@i].ToStationeryNo" class="form-control" />
-
-                            <label asp-for="StationeryOrderItems[@i].NoOfBooks"></label>
-                            <input asp-for="StationeryOrderItems[@i].NoOfBooks" class="form-control" />
-
-                            <label asp-for="StationeryOrderItems[@i].Comments"></label>
-                            <input asp-for="StationeryOrderItems[@i].Comments" class="form-control" />
-
-                            <label asp-for="StationeryOrderItems[@i].TenantId "></label>
-                            <input asp-for="StationeryOrderItems[@i].TenantId " class="form-control" />
-
-                            <label asp-for="StationeryOrderItems[@i].CompletionDate"></label>
-                            <input asp-for="StationeryOrderItems[@i].CompletionDate" class="form-control" />
-
-                            <label asp-for="StationeryOrderItems[@i].IsDeleted"></label>
-                            <input  asp-for="StationeryOrderItems[@i].IsDeleted" class="form-control"/> 
-                            
-                        </div>
-                    }
-                </div>
- 
-                <button type="button" id="addStationeryOrderItem" class="btn btn-primary">Add Order Item</button>
-                 
-                <button type="button" id="saveButton" class="btn btn-primary">Save</button>
-
-                </ng-form> *@
-                <button type="button" class="btn btn-primary" onclick="addStationaryItem()">Add Stationary Item</button>
+             
+              <button type="button" class="btn btn-primary" onclick="addStationaryItem()">Add Stationary Item</button>
 
 
                 <br /><br />
                 <div id="stationaryItemsContainer">
 
-                    <div class="row css-flex-table-header">
+                    <div class="row css-flex-table-header ">
+                        <div class="col">
+                            <label asp-for="StationeryOrder.StationeryOrderItems[0].PrintingStationeryId">PrintingStationery</label>
+                        </div>
                         <div class="col">
                             <label asp-for="StationeryOrder.StationeryOrderItems[0].FromStationeryNo">FromStationeryNo</label>
                         </div>
@@ -212,12 +177,14 @@
                         <div class="col">
                             <label asp-for="StationeryOrder.StationeryOrderItems[0].Comments">Comments</label>
                         </div>
-                        <div class="col">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[0].TenantId">TenantId</label>
-                        </div>
+                        
+                        
                     </div>
 
-                    <div class="row stationary-item css-flex-table-body">
+                    <div class="row stationary-item css-flex-table-body col-16">
+                        <div class="col">
+                            <select asp-for="StationeryOrder.StationeryOrderItems[0].PrintingStationeryId" asp-items="ViewBag.PrintingStationeryId"></select>
+                        </div>
 
                         <div class="col">
                             <input asp-for="StationeryOrder.StationeryOrderItems[0].FromStationeryNo" />
@@ -233,9 +200,8 @@
                             <input asp-for="StationeryOrder.StationeryOrderItems[0].Comments" />
                         </div>
 
-                        <div class="col">
-                            <input asp-for="StationeryOrder.StationeryOrderItems[0].TenantId" />
-                        </div>
+                        
+                        
                     </div> @* Stationary-item Div *@
                 </div>@* Stationary Contationer Div *@
               

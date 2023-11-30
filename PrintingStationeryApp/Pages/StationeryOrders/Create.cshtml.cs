@@ -20,7 +20,7 @@ namespace PrintingStationeryApp.Pages.StationeryOrders
            
         }
 
-    [BindProperty]
+        [BindProperty]
         public StationeryOrder StationeryOrder { get; set; } = default!;
 
         

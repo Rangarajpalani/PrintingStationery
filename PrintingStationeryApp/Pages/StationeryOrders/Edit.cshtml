@@ -7,6 +7,8 @@
 
 <h1>Edit</h1>
 
+
+
 <h4>StationeryOrder</h4>
 <hr />
 <div>
@@ -153,64 +155,18 @@
             <div>
                 <h3>Stationery Order Items</h3>
                 <br /><br />
-                @* <div id="orderItemsContainer">
-                    foreach (var item in Model.StationeryOrder.StationeryOrderItems)
-                    {
-                        <div class="form-group order-item">
-                            <label asp-for="item.Statio"></label>
-                            <input asp-for="item.ProductName" class="form-control" />
-
-                            <label asp-for="item.Quantity"></label>
-                            <input asp-for="item.Quantity" class="form-control" />
-
-                            <label asp-for="item.Price"></label>
-                            <input asp-for="item.Price" class="form-control" />
-                    </ div>
-                    }
-            </div>
-
-                <button type="button" id="addOrderItem" class="btn btn-primary">Add Order Item</button>*@
-                @* <table class="table">
-                    <thead>
-                        <tr>
-                            <th>PrintingStationery</th>
-                            <th>FromStationeryNo</th>
-                            <th>ToStationeryNo </th>
-                            <th>NoOfBooks</th>
-                            <th>Comments </th>
-                            <th>TenantId</th>
-                            <th>CompletionDate</th>
-                            <th>IsDeleted </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (var i = 0; i < Model.StationeryOrder.StationeryOrderItems.Count; i++)
-                        {
-                            <tr>
-                                
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].PrintingStationery" /></td>
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].FromStationeryNo" /></td>
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].ToStationeryNo" /></td>
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].NoOfBooks" /></td>
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].Comments" /></td>
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].TenantId"  /></td>
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].CompletionDate"  /></td>
-                                <td><input asp-for="StationeryOrder.StationeryOrderItems[i].IsDeleted" /></td>
-                                <td><input type="hidden" asp-for="StationeryOrder.StationeryOrderItems[i].StationeryOrderItemId" /></td>
-                               
-                            </tr>
-                        }
-                    </tbody>
-                </table> *@
                 
-               @*  <br /><br />
+                <button type="button" class="btn btn-primary" onclick="addStationaryItem()">Add Stationary Item</button>
+
+
+                <br /><br />
                 <div id="stationaryItemsContainer">
-
-                    <button type="button" class="btn btn-primary" onclick="addStationaryItem()">Add Stationary Item</button>
-
-
-                    <br /><br />
-                    <div class="row css-flex-table-header">
+                     @for (var i = 0; i < Model.StationeryOrder.StationeryOrderItems.Count; i++)
+                    {
+                    <div class="row css-flex-table-header ">
+                        <div class="col">
+                                <label asp-for="StationeryOrder.StationeryOrderItems[0].PrintingStationeryId">PrintingStationery</label>
+                         </div>
                         <div class="col">
                             <label asp-for="StationeryOrder.StationeryOrderItems[0].FromStationeryNo">FromStationeryNo</label>
                         </div>
@@ -225,102 +181,15 @@
                         <div class="col">
                             <label asp-for="StationeryOrder.StationeryOrderItems[0].Comments">Comments</label>
                         </div>
-                        <div class="col">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[0].TenantId">TenantId</label>
-                        </div>
+                        
                     </div>
 
-                   
-                        @for (var i = 0; i < Model.StationeryOrder.StationeryOrderItems.Count; i++)
-                        {
-
-                            <div class="row stationary-item css-flex-table-body">
-
-                                <div class="col">
-                                    <input asp-for="StationeryOrder.StationeryOrderItems[i].FromStationeryNo" />
-                                </div>
-
-                                <div class="col">
-                                    <input asp-for="StationeryOrder.StationeryOrderItems[i].ToStationeryNo" />
-                                </div>
-                                <div class="col">
-                                    <input asp-for="StationeryOrder.StationeryOrderItems[i].NoOfBooks" />
-                                </div>
-                                <div class="col">
-                                    <input asp-for="StationeryOrder.StationeryOrderItems[i].Comments" />
-                                </div>
-                                <div class="col">
-                                    <input asp-for="StationeryOrder.StationeryOrderItems[i].TenantId" />
-                                </div>
-                            </div>  
-                        }
-                    
-                    <br />
-                    <br />
-                
-                </div>*@
-                @* <div id="StatineryorderItemsContainer">
-                    @for (var i = 0; i < Model.StationeryOrder.StationeryOrderItems.Count; i++)
-                    {
-                        <div class="form-group Stationeryorder-item">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].PrintingStationery"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].PrintingStationery" class="form-control" />
-
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].FromStationeryNo"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].FromStationeryNo" class="form-control" />
-
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].ToStationeryNo"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].ToStationeryNo" class="form-control" />
-
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].NoOfBooks"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].NoOfBooks" class="form-control" />
-
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].Comments"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].Comments" class="form-control" />
-
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].TenantId"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].TenantId" class="form-control" />
-
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].CompletionDate"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].CompletionDate" class="form-control" />
-
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].IsDeleted"></label>
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].IsDeleted" class="form-control" />
-
-                        </div>
-                    }
-                </div>
-
-                <button type="button" id="addStatineryOrderItem" class="btn btn-primary">Add Order Item</button>*@
-
-                <button type="button" class="btn btn-primary" onclick="addStationaryItem()">Add Stationary Item</button>
-
-
-                <br /><br />
-                <div id="stationaryItemsContainer">
-                     @for (var i = 0; i < Model.StationeryOrder.StationeryOrderItems.Count; i++)
-                    {
-                    <div class="row css-flex-table-header">
-                        <div class="col">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].FromStationeryNo">FromStationeryNo</label>
-                        </div>
-                        <div class="col">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].ToStationeryNo">ToStationeryNo</label>
-                        </div>
-
-                        <div class="col">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].NoOfBooks">NoOfBooks</label>
-                        </div>
-
-                        <div class="col">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].Comments">Comments</label>
-                        </div>
-                        <div class="col">
-                            <label asp-for="StationeryOrder.StationeryOrderItems[i].TenantId">TenantId</label>
-                        </div>
-                    </div>
+                        <input type="hidden" asp-for="StationeryOrder.StationeryOrderItems[i].StationeryOrderItemId" />
 
                     <div class="row stationary-item css-flex-table-body">
+                            <div class="col">
+                                <select asp-for="StationeryOrder.StationeryOrderItems[i].PrintingStationeryId" asp-items="ViewBag.PrintingStationeryId"></select>
+                            </div>
 
                         <div class="col">
                             <input asp-for="StationeryOrder.StationeryOrderItems[i].FromStationeryNo" />
@@ -336,9 +205,8 @@
                             <input asp-for="StationeryOrder.StationeryOrderItems[i].Comments" />
                         </div>
 
-                        <div class="col">
-                            <input asp-for="StationeryOrder.StationeryOrderItems[i].TenantId" />
-                        </div>
+                        
+                           
                     </div> @* Stationary-item Div *@
                     }
                 </div>@* Stationary Contationer Div *@
@@ -365,7 +233,7 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
 
-        var itemIndex = 1;
+        var itemIndex =Model.StationeryOrder.StationeryOrderItems.Count;
 
         function addStationaryItem() {
 
@@ -417,31 +285,4 @@
 
     </script>
 
-    @* <script>
-        
-            $(document).ready(function () {
-                var StationeryorderItemIndex = @Model.StationeryOrder.StationeryOrderItems.Count;
-
-                // Add order item dynamically
-                $("#addStationeryOrderItem").click(function () {
-                var newStationeryOrderItem = $("#StationeryorderItemsContainer .Stationeryorder-item:first").clone();
-                    alert(newStationeryOrderItem);
-                    newStationeryOrderItem.find("input").val("");
-                    newStationeryOrderItem.find("label").each(function () {
-                    var newName = $(this).attr("for").replace("StationeryOrder_StationeryOrderItems_" + StationeryorderItemIndex, "StationeryOrder_OrderItems_" + (StationeryorderItemIndex + 1));
-                        $(this).attr("for", newName);
-                    });
-
-                newStationeryOrderItem.find("input").each(function () {
-                    var newName = $(this).attr("name").replace("[ " + StationeryorderItemIndex + " ]", "[" + (StationeryorderItemIndex + 1) + "]");
-                        $(this).attr("id", newName);
-                        $(this).attr("name", newName);
-                    });
-
-                $("#StationeryorderItemsContainer").append(newStationeryOrderItem);
-                StationeryorderItemIndex++;
-                });
-
-
-    </script> *@
-}
+  }  
